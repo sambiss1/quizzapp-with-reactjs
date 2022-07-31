@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ResultPage = () => {
+export const ResultPage = () => {
     return (
         <div>ResultPage</div>
     )

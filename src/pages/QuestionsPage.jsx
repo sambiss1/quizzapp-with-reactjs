@@ -1,6 +1,6 @@
 import React from 'react'
 
-const QuestionsPage = () => {
+export const QuestionsPage = () => {
     return (
         <div>QuestionsPage</div>
     )
