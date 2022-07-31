@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.centeredItems, html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+html,
+body {
+  background: linear-gradient(90deg, #85F6B8 0%, rgba(142, 217, 235, 0.85) 99.84%);
+  height: 100%;
+  width: 100%;
+  background-blend-mode: darken;
+  font-family: "Inter", "Sans-serif";
+}
+
+/*# sourceMappingURL=App.css.map */
