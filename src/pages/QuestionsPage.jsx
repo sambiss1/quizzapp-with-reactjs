@@ -35,6 +35,11 @@ export const QuestionsPage = () => {
 
     // handle next question fucntion
 
+    // if (questionIndex === questions.length - 1) {
+
+    //     setButtonValue("Terminer")
+    // }
+
     const handleNextQuestion = (event) => {
         event.preventDefault()
         const getAnswer = () => {
@@ -54,12 +59,13 @@ export const QuestionsPage = () => {
         getAnswer()
 
         setQuestionIndex(questionIndex + 1)
-        if (questions.length - 1) {
+
+        if (questionIndex < questions.length - 1) {
+            setQuestionIndex(questionIndex + 1)
+        } else {
+
             navigate("../result", { replace: true })
             console.log(questionIndex + 1)
-        } else {
-            setQuestionIndex(questionIndex + 1)
-
         }
 
 
