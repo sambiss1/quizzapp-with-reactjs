@@ -26,8 +26,6 @@ export const Title = ({ title }) => {
     )
 }
 
-
-
 export const Home = () => {
 
     const [gamerName, setGamerName] = useState("")
@@ -46,7 +44,6 @@ export const Home = () => {
 
         console.log(`Local storage : ${localStorage.getItem("username")}`)
         navigate("../questions", { replace: true });
-        // return <Navigate to="/questions" replace={true} />
     }
     return (
         <div>
