@@ -29,4 +29,60 @@ body {
     font-family: "Inter", "Sans-serif";
 }
 
-@media (max-width: map.get($breakpoints, "xl")) {}
+@media (max-width: map.get($breakpoints, "xl")) {
+    .centeredItem {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .container {
+        background-color: $white;
+        height: 60vh;
+        width: 40vw;
+        @extend .centeredItem;
+        text-align: center;
+        justify-content: space-evenly;
+        padding: 10% 5%;
+    }
+
+    .homepage__title {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .homepage__form {
+        width: 100%;
+        @extend .centeredItem;
+
+        padding: 2%;
+        text-align: left;
+
+        align-items: flex-start;
+
+
+
+        input[type="text"],
+        input[type="email"] {
+            margin: 5% 0;
+            height: 40px;
+            width: 100%;
+            padding: 2%;
+        }
+
+        ::placeholer {
+            color: #dbdbdb;
+            opacity: 1;
+        }
+
+    }
+
+    #start__quiz--button {
+        border: none;
+        background: $primaryColor;
+    }
+}

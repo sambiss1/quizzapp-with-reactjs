@@ -22,4 +22,53 @@ body {
   font-family: "Inter", "Sans-serif";
 }
 
+@media (max-width: 1200px) {
+  .centeredItem, .homepage__form, .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .container {
+    background-color: #FFFFFF;
+    height: 60vh;
+    width: 40vw;
+    text-align: center;
+    justify-content: space-evenly;
+    padding: 10% 5%;
+  }
+
+  .homepage__title {
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  .homepage__form {
+    width: 100%;
+    padding: 2%;
+    text-align: left;
+    align-items: flex-start;
+  }
+  .homepage__form input[type=text],
+.homepage__form input[type=email] {
+    margin: 5% 0;
+    height: 40px;
+    width: 100%;
+    padding: 2%;
+  }
+  .homepage__form ::placeholer {
+    color: #dbdbdb;
+    opacity: 1;
+  }
+
+  #start__quiz--button {
+    border: none;
+    background: #028A3D;
+  }
+}
+
 /*# sourceMappingURL=App.css.map */
