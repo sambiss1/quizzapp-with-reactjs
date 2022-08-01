@@ -5,7 +5,7 @@ import { Container } from '../components/Container';
 import { Button } from "../components/Button"
 import "../styles/App.css"
 
-import { Navigate, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export const Buttons = styled.button`
     background: #028A3D;

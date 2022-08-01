@@ -69,6 +69,47 @@ body {
     border: none;
     background: #028A3D;
   }
+
+  .question__status--container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .questionForm {
+    width: 100%;
+    align-items: flex-start;
+  }
+  .questionForm .answer__suggested--container {
+    width: 100%;
+    text-align: left;
+    position: relative;
+    display: flex;
+  }
+  .questionForm .answer__suggested--container label {
+    width: 100%;
+    border: 0.1em solid #C4C4C4;
+    padding: 2% 10%;
+    margin: 2% 0;
+  }
+  .questionForm .answer__suggested--container input[type=radio] {
+    position: absolute;
+    align-self: center;
+    justify-self: center;
+    appearance: none;
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 50%;
+    border: 0.1em solid #C4C4C4;
+    left: 5%;
+  }
+  .questionForm .answer__suggested--container input[type=radio]:checked {
+    border: none;
+    background-color: #028A3D;
+  }
+  .questionForm .answer__suggested--container input[type=radio]:checked ~ label {
+    border: 0.1em solid #028A3D;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */

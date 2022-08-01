@@ -85,4 +85,57 @@ body {
         border: none;
         background: $primaryColor;
     }
+
+
+    // Question page 
+    .question__status--container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .questionForm {
+        width: 100%;
+        // border: .1em solid #000000;
+        align-items: flex-start;
+
+        .answer__suggested--container {
+            width: 100%;
+
+            text-align: left;
+            // margin: 5% 0;
+            position: relative;
+            display: flex;
+
+
+            label {
+                width: 100%;
+                border: $answer__border;
+                padding: 2% 10%;
+                margin: 2% 0;
+            }
+
+            input[type="radio"] {
+                position: absolute;
+                align-self: center;
+                justify-self: center;
+                appearance: none;
+                width: 1.2em;
+                height: 1.2em;
+                border-radius: $rounded__border;
+                border: $answer__border;
+                left: 5%;
+
+                &:checked {
+                    border: none;
+                    background-color: $primaryColor;
+                }
+
+                &:checked~label {
+                    border: .1em solid $primaryColor;
+                }
+            }
+
+        }
+    }
 }
