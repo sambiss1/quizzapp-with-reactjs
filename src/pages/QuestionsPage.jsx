@@ -1,8 +1,7 @@
 import { React, useState, useEffect, useRef } from 'react';
 
 import styled from "styled-components"
-import { Container } from '../components/Container';
-import { Button } from "../components/Button"
+
 import "../styles/App.css";
 
 import questions from "../datas/questions.json";
@@ -12,7 +11,7 @@ import { useNavigate } from "react-router-dom"
 export const QuestionsPage = () => {
 
 
-    // let score = 0;
+
 
     let navigate = useNavigate()
 
@@ -109,7 +108,7 @@ export const QuestionsPage = () => {
                             id="answser__suggested__first"
                             name="answer__suggested"
                             value={questions[questionIndex].answerSuggested[0]}
-                            // checked={setAnswer === questions[questionIndex].answerSuggested[0]}
+
                             onChange={(event) => {
                                 setAnswer(event.target.value)
                                 setDisabled(false)

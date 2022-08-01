@@ -45,6 +45,9 @@ export const Home = () => {
         console.log(`Local storage : ${localStorage.getItem("username")}`)
         navigate("../questions", { replace: true });
     }
+
+    console.log(localStorage.getItem("username"))
+    console.log(localStorage.getItem("usermail"))
     return (
         <div>
             <div className="container">

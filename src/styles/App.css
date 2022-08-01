@@ -65,7 +65,7 @@ body {
     opacity: 1;
   }
 
-  #start__quiz--button {
+  #start__quiz--button, .back__home--button {
     border: none;
     background: #028A3D;
   }
@@ -127,6 +127,28 @@ body {
   }
   .questionForm .next__question--button:disabled {
     background-color: rgba(2, 138, 61, 0.42);
+  }
+
+  .back__home--button {
+    background-color: #0880D6;
+    margin: 5% 0;
+    color: #FFFFFF;
+    padding: 5%;
+    width: 50%;
+  }
+
+  .icon--success,
+.icon--failed {
+    font-size: 8em;
+    margin: 5% 0;
+  }
+
+  .icon--success {
+    color: #028A3D;
+  }
+
+  .icon--failed {
+    color: #FF3838;
   }
 }
 

@@ -164,4 +164,33 @@ body {
 
 
     }
+
+    .back__home--button {
+        @extend #start__quiz--button;
+        background-color: #0880D6;
+        margin: 5% 0;
+        color: $white;
+        padding: 5%;
+        width: 50%;
+    }
+
+
+    // Result Page 
+
+    .icon--success,
+    .icon--failed {
+        font-size: 8em;
+        margin: 5% 0;
+
+
+    }
+
+    .icon--success {
+        color: #028A3D;
+    }
+
+    .icon--failed {
+        color: #FF3838;
+    }
+
 }
