@@ -110,6 +110,24 @@ body {
   .questionForm .answer__suggested--container input[type=radio]:checked ~ label {
     border: 0.1em solid #028A3D;
   }
+  .questionForm .cancel__quiz--button,
+.questionForm .next__question--button {
+    border: none;
+    padding: 0.8em 10%;
+    width: 45%;
+    color: white;
+  }
+  .questionForm .cancel__quiz--button {
+    background: #EC880C;
+    margin-right: 5%;
+  }
+  .questionForm .next__question--button {
+    margin-left: 5%;
+    background: #028A3D;
+  }
+  .questionForm .next__question--button:disabled {
+    background-color: rgba(2, 138, 61, 0.42);
+  }
 }
 
 /*# sourceMappingURL=App.css.map */

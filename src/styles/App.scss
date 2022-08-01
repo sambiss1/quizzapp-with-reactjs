@@ -137,5 +137,31 @@ body {
             }
 
         }
+
+        .cancel__quiz--button,
+        .next__question--button {
+            border: none;
+            padding: .8em 10%;
+            width: 45%;
+            color: white;
+
+        }
+
+        .cancel__quiz--button {
+            background: #EC880C;
+            margin-right: 5%;
+
+        }
+
+        .next__question--button {
+            margin-left: 5%;
+            background: $primaryColor;
+
+            &:disabled {
+                background-color: $disabledColor;
+            }
+        }
+
+
     }
 }

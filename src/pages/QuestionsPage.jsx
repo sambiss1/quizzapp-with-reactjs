@@ -5,51 +5,71 @@ import { Container } from '../components/Container';
 import { Button } from "../components/Button"
 import "../styles/App.css";
 
-import questions from "../datas/questions.json"
+import questions from "../datas/questions.json";
 
-import { Navigate, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export const QuestionsPage = () => {
 
 
+    // let score = 0;
 
+    let navigate = useNavigate()
 
     // Loading questions
-    questions.sort(() => Math.random() - 0.5);
-    for (let i = 0; i < questions.length; i++) {
-        questions[i].answerSuggested.sort(() => Math.random() - 0.5);
-    };
+    // questions.sort(() => Math.random() - 0.5);
+    // for (let i = 0; i < questions.length; i++) {
+    //     questions[i].answerSuggested.sort(() => Math.random() - 0.5);
+    // };
     const [questionIndex, setQuestionIndex] = useState(0)
+    const [gamerScore, setGamerScore] = useState(0)
+
+
+
+    // Get value of selected answer 
+    const [answer, setAnswer] = useState("")
+
+    const [buttonValue, setButtonValue] = useState("Suivant")
+    const [isDisabled, setDisabled] = useState(true)
+
+
 
     // handle next question fucntion
 
-    // Get value of selected answer 
-
     const handleNextQuestion = (event) => {
         event.preventDefault()
-        // getAnswer()
+        const getAnswer = () => {
+
+            console.log(`Answer Selected  : ${answer}`)
+            if (answer === questions[questionIndex.correctAnswer]) {
+                console.log(`Answer Selected  : ${answer}`)
+                setGamerScore(gamerScore + 1)
+            }
+            else {
+                setGamerScore(gamerScore)
+            }
+        }
+
+
+
+        getAnswer()
+
         setQuestionIndex(questionIndex + 1)
-        console.log(questionIndex + 1)
-    }
-    let score = 0
-    const [answer, setAnswer] = useState("")
-    const getAnswer = () => {
+        if (questions.length - 1) {
+            navigate("../result", { replace: true })
+            console.log(questionIndex + 1)
+        } else {
+            setQuestionIndex(questionIndex + 1)
 
-        console.log(`Answer Selected  : ${answer}`)
-        if (answer === questions[questionIndex.correctAnswer]) {
-            return score++
-        }
-        else {
-            return score
         }
 
+
     }
-    console.log(score);
 
     // Timer
 
-    let count = 60
-    const [time, setTime] = useState(60)
+    let count = 60;
+    const [time, setTime] = useState(60);
 
     const timer = (e) => {
         setTime(time - 1)
@@ -89,7 +109,11 @@ export const QuestionsPage = () => {
                             id="answser__suggested__first"
                             name="answer__suggested"
                             value={questions[questionIndex].answerSuggested[0]}
-                            onChange={(val) => setAnswer(val.target.value)}
+                            // checked={setAnswer === questions[questionIndex].answerSuggested[0]}
+                            onChange={(event) => {
+                                setAnswer(event.target.value)
+                                setDisabled(false)
+                            }}
                         />
                         <label
                             htmlFor="answser__suggested__first"
@@ -105,7 +129,10 @@ export const QuestionsPage = () => {
                             id="answser__suggested__second"
                             name="answer__suggested"
                             value={questions[questionIndex].answerSuggested[1]}
-                        // onChange={(event) => setAnswer(event.target.value)}
+                            onChange={(event) => {
+                                setAnswer(event.target.value)
+                                setDisabled(false)
+                            }}
                         />
                         <label
                             htmlFor="answser__suggested__second"
@@ -122,7 +149,10 @@ export const QuestionsPage = () => {
                             id="answser__suggested__third"
                             name="answer__suggested"
                             value={questions[questionIndex].answerSuggested[2]}
-                        // onChange={(event) => setAnswer(event.target.value)}
+                            onChange={(event) => {
+                                setAnswer(event.target.value)
+                                setDisabled(false)
+                            }}
                         />
                         <label
                             htmlFor="answser__suggested__third"
@@ -138,7 +168,7 @@ export const QuestionsPage = () => {
                             id="answser__suggested__fourth"
                             name="answer__suggested"
                             value={questions[questionIndex].answerSuggested[3]}
-                        // onChange={(event) => setAnswer(event.target.value)}
+                            onChange={(event) => setAnswer(event.target.value)}
                         />
                         <label
                             htmlFor="answser__suggested__fourth"
@@ -150,10 +180,13 @@ export const QuestionsPage = () => {
                         <input
                             type="button"
                             value="Quitter"
+                            className="cancel__quiz--button"
                         />
                         <input
                             type="submit"
-                            value="Suivant"
+                            value={buttonValue}
+                            className="next__question--button"
+                            disabled={isDisabled}
                         />
                     </div>
 
