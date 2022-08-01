@@ -2,7 +2,13 @@ import React from 'react'
 
 export const QuestionsPage = () => {
     return (
-        <div>QuestionsPage</div>
+        <>
+            <div
+                className="container">
+                QuestionsPage
+            </div>
+
+        </>
     )
 }
 

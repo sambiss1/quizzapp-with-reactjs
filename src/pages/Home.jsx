@@ -5,6 +5,8 @@ import { Container } from '../components/Container';
 import { Button } from "../components/Button"
 import "../styles/App.css"
 
+import { Navigate, useNavigate } from "react-router-dom"
+
 export const Buttons = styled.button`
     background: #028A3D;
     border: none;
@@ -30,7 +32,10 @@ export const Home = () => {
 
     const [gamerName, setGamerName] = useState("")
     const [gamerMail, setGamerMail] = useState("")
+    let navigate = useNavigate();
     const handleStartQuiz = (event) => {
+
+
         event.preventDefault();
         console.log(gamerName);
         console.log(gamerMail);
@@ -40,6 +45,8 @@ export const Home = () => {
         localStorage.setItem("usermail", gamerMail)
 
         console.log(`Local storage : ${localStorage.getItem("username")}`)
+        navigate("../questions", { replace: true });
+        // return <Navigate to="/questions" replace={true} />
     }
     return (
         <div>
