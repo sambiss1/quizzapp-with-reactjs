@@ -6,8 +6,8 @@ import { BsCheckCircle, BsXCircle } from "react-icons/bs"
 export const ResultPage = () => {
     let username = localStorage.getItem('username')
     let usermail = localStorage.getItem('usermail')
-    let score = 6
-
+    const score = localStorage.getItem('score')
+    console.log(score)
     let navigate = useNavigate()
     return (
         <>

@@ -6,13 +6,18 @@ import "../styles/App.css";
 
 import questions from "../datas/questions.json";
 
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
+
+
+const QuestionForm = () => {
+    return (
+        <>
+
+        </>
+    )
+}
 
 export const QuestionsPage = () => {
-
-
-
-
     let navigate = useNavigate()
 
     // Loading questions
@@ -23,34 +28,39 @@ export const QuestionsPage = () => {
     const [questionIndex, setQuestionIndex] = useState(0)
     const [gamerScore, setGamerScore] = useState(0)
 
-
-
     // Get value of selected answer 
     const [answer, setAnswer] = useState("")
 
     const [buttonValue, setButtonValue] = useState("Suivant")
     const [isDisabled, setDisabled] = useState(true)
+    const [isChecked, setChecked] = useState(false)
+
+
+
+
+
 
 
 
     // handle next question fucntion
 
-    // if (questionIndex === questions.length - 1) {
-
-    //     setButtonValue("Terminer")
-    // }
 
     const handleNextQuestion = (event) => {
         event.preventDefault()
         const getAnswer = () => {
 
             console.log(`Answer Selected  : ${answer}`)
-            if (answer === questions[questionIndex.correctAnswer]) {
+            console.log(`Correct Answer : ${questions[questionIndex].correctAnswer}`)
+            if (answer === questions[questionIndex].correctAnswer) {
                 console.log(`Answer Selected  : ${answer}`)
                 setGamerScore(gamerScore + 1)
+                console.log(gamerScore)
+                localStorage.setItem("score", gamerScore)
             }
             else {
                 setGamerScore(gamerScore)
+                console.log(gamerScore)
+                localStorage.setItem("score", gamerScore)
             }
         }
 
@@ -59,31 +69,48 @@ export const QuestionsPage = () => {
         getAnswer()
 
         setQuestionIndex(questionIndex + 1)
+        if (questionIndex === questions.length - 1) {
+            setButtonValue("Terminer")
+        }
 
         if (questionIndex < questions.length - 1) {
             setQuestionIndex(questionIndex + 1)
         } else {
 
             navigate("../result", { replace: true })
-            console.log(questionIndex + 1)
         }
 
 
     }
 
+
     // Timer
+    const [seconds, setSeconds] = useState(10);
 
-    let count = 60;
-    const [time, setTime] = useState(60);
+    // const interval = useRef()
 
-    const timer = (e) => {
-        setTime(time - 1)
-        console.log(time)
-    }
-    useEffect(() => {
-        const countTime = setInterval((e) => timer, 1000);
-        return clearInterval(countTime)
-    })
+    // Interval
+    // console.log(interval)
+
+    useEffect((countTime) => {
+        const interval = setInterval(() => {
+            setSeconds((seconds) =>
+                seconds - 1
+            );
+
+
+
+            // console.log(seconds)
+        }, 1000);
+
+        console.log(seconds)
+        if (seconds === 0) {
+            console.log(seconds)
+            clearInterval(interval)
+        }
+
+        return (countTime) => clearInterval(interval);
+    }, [seconds]);
 
 
 
@@ -91,14 +118,23 @@ export const QuestionsPage = () => {
         <>
             <div
                 className="container"
-            // onLoad={startTime}
             >
                 <h3>{questions[questionIndex].questionTitle}</h3>
+                <div
+                    className="questions__progressbar--container"
+                >
+                    <div
+                        className="questions__progressbar"
+                    >
+
+                    </div>
+                </div>
                 <div className="question__status--container">
+
                     <p className="question__status--number">
                         Questions {questionIndex + 1}/15
                     </p>
-                    <p>{time}</p>
+                    <p>{seconds}</p>
 
                 </div>
                 <form
@@ -114,10 +150,11 @@ export const QuestionsPage = () => {
                             id="answser__suggested__first"
                             name="answer__suggested"
                             value={questions[questionIndex].answerSuggested[0]}
-
+                            checked={isChecked}
                             onChange={(event) => {
                                 setAnswer(event.target.value)
                                 setDisabled(false)
+                                setChecked(true)
                             }}
                         />
                         <label

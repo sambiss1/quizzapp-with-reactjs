@@ -76,6 +76,17 @@ body {
     width: 100%;
   }
 
+  .questions__progressbar--container {
+    width: 100%;
+    height: 10px;
+  }
+  .questions__progressbar--container .questions__progressbar {
+    width: 100%;
+    height: 100%;
+    background: #028A3D;
+    border-radius: 15px;
+  }
+
   .questionForm {
     width: 100%;
     align-items: flex-start;
